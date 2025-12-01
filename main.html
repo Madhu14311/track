@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Tracker</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            /* background-color: #f7d8ed; */
+            background-color:#f5e6f0;
+           
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+      
+        nav{
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            animation: navSlideDown 1s ease forwards;
+        }
+
+        nav .logo{
+            color: chartreuse;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul{
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a{
+            display: flex;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover{
+            color: chartreuse;
+        }
+
+        .image img{
+            width: 100%;
+            height: 90vh;
+            object-fit: cover;
+            margin-top: 70px;
+            animation: zoom-image 2.5s ease-in-out;
+            animation: innerZoom 1.4s ease-out forwards;
+
+        }
+
+
+    
+
+             @keyframes innerZoom {
+             0% {
+              transform: scale(0.8);   
+             opacity: 0;
+        }
+             60% {
+             transform: scale(1.05);  
+            opacity: 1;
+        }
+             100% {
+             transform: scale(1);   
+             opacity: 1;
+        }
+        }
+
+
+
+        @keyframes zoom-image {
+           0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+            100% {
+           transform: scale(1);
+            opacity: 1;
+    }
+}
+            @keyframes zoom-image {
+                0% {
+              opacity: 0;
+              transform: translateY(40px);
+        }
+              100% {
+             opacity: 1;
+            transform: translateY(0);
+        }
+}
+
+
+      
+        .header{
+            text-align: center;
+            background: rgba(48, 46, 46, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            color: white;
+            animation: headerSlideUp 1s ease forwards;
+        }
+
+        .header button{
+            padding: 15px 25px;
+            border-radius: 25px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: chartreuse;
+            /* background-color: peachpuff;; */
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+
+       
+        @keyframes navSlideDown {
+            from { transform: translateY(-60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes headerSlideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeImage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .cards-container {
+         display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+         gap: 20px;
+         padding: 20px;
+         margin-top: 30px;
+       }
+
+        .card {
+      background: #f7d8ed;
+      /* background: #beefc2; */
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      }
+
+     .card img {
+     width: 100%;
+     height: 180px;
+    object-fit: cover;
+     }
+
+    .card-content {
+    padding: 15px;
+    }
+
+    .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+
+    .card-text {
+    font-size: 15px;
+    color: #444;
+    }
+
+    .features-section {
+    margin-top: 40px;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: aliceblue;
+    }
+
+    .features-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #2a2a2a;
+    }
+
+    .features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    background-color: aliceblue;
+    }
+
+    .feature-card {
+    background: #f2dbe8;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    animation: fadeUp 0.8s ease;
+    }
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.feature-card i {
+    font-size: 40px;
+    color: #19a84a;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+ .footer {
+    background: #0e0e0e;
+    color: white;
+    padding: 40px 20px 15px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: chartreuse;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: chartreuse;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin-right: 12px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: chartreuse;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">Product Expiry Tracker</a>
+
+        <ul>
+            <li><a href="#"><i class="bi bi-house-door" style="color: rgb(251,12,12);"></i>Home</a></li>
+            <li><a href="#"><i class="bi bi-basket" style="color: rgb(220, 130, 11);"></i>Track Products</a></li>
+            <li><a href="#"><i class="bi bi-info-circle-fill"></i>About</a></li>
+            <li><a href="#"><i class="bi bi-person-fill" style="color: blue;"></i>Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="image">
+        <img src="watch.png">
+    </div>
+
+    <div class="header">
+        <h1>Welcome to Product Expiry Tracking</h1>
+
+        <a href="http://127.0.0.1:5500/indexx.html">
+            <button>Track Your Products</button>
+        </a>
+    </div>
+    <div class="cards-container">
+
+    <div class="card">
+        <img src="organic-vegetables-fruits-variety-table-kitchen-80751988.jpg" alt="">
+        <div class="card-content">
+            <h3 class="card-title">Fresh Vegetables</h3>
+            <p class="card-text">Track expiry dates and keep your vegetables fresh and healthy.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="milk.jpg" alt="">
+        <div class="card-content">
+            <h3 class="card-title">Daily Groceries</h3>
+            <p class="card-text">Easily add and manage everyday groceries with expiry alerts.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="medicine.jpg" alt="">
+        <div class="card-content">
+            <h3 class="card-title">Medical Pharmacy</h3>
+            <p class="card-text"> Never forget your dosage timings. Keep track of all medications safely..</p>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="features-section">
+    <h2 class="features-title">Our Features</h2>
+
+    <div class="features-container">
+
+        <div class="feature-card">
+            <i class="bi bi-bell-fill"></i>
+            <h3>Expiry Alerts</h3>
+            <p>Receive smart notifications before your products expire.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="bi bi-upc-scan"></i>
+            <h3>Barcode Scanner</h3>
+            <p>Scan product barcodes instantly and auto-fill expiry details.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="bi bi-cloud-arrow-up-fill"></i>
+            <h3>Cloud Backup</h3>
+            <p>Store your product list safely and access it anywhere.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="bi bi-shield-check"></i>
+            <h3>Safe & Secure</h3>
+            <p>Your data is encrypted and protected with high security.</p>
+        </div>
+
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-section">
+            <h3>Product Expiry Tracker</h3>
+            <p>Smart way to Track Groceries, Medicines, and Daily essentials.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#"><i class="bi bi-house-door"></i> Home</a></li>
+                <li><a href="#"><i class="bi bi-basket"></i> Track Products</a></li>
+                <li><a href="#"><i class="bi bi-info-circle-fill"></i> About</a></li>
+                <li><a href="#"><i class="bi bi-person-fill"></i> Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Product Expiry Tracker | All Rights Reserved.</p><br>
+        <p>Developed by Bliss Sierra Software Solutions</p>
+    </div>
+</footer>
+
+
+
+    <script>
+
+    </script>
+
+</body>
+</html>
